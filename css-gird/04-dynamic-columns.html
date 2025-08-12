@@ -1,0 +1,29 @@
+<html>
+    <style>
+        .container {
+            display: grid;            
+            width: 30%;
+            aspect-ratio: 1 / 1;
+        }
+        .item {
+            background-color: lightblue;
+            border: 1px solid black;
+        }
+    </style>
+    <body>
+        <div class="container" id="mygrid">
+         
+        </div>
+    </body>
+
+    <script>
+        let mygrid = document.getElementById("mygrid");
+        let n = 15;
+        mygrid.style.gridTemplateColumns = `repeat(${n}, auto)`;
+        for (let i = 0; i < n*n; i++) {
+            let item = document.createElement("div");
+            item.classList.add("item");
+            mygrid.appendChild(item);
+        }
+    </script>
+</html>
