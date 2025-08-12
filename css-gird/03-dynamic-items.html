@@ -1,28 +1,30 @@
 <html>
-    <style>
-        .container {
-            display: grid;
-            grid-template-columns: repeat(15, auto);
-            width: 30%;
-            aspect-ratio: 1 / 1;
-        }
-        .item {
-            background-color: lightblue;
-            border: 1px solid black;
-        }
-    </style>
-    <body>
-        <div class="container" id="mygrid">
-         
-        </div>
-    </body>
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: repeat(15, auto);
+        width: 30%;
+        aspect-ratio: 1 / 1;
+    }
 
+    .item {
+        background-color: lightblue;
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <div class="container" id="mygrid">
+
+    </div>
     <script>
         let mygrid = document.getElementById("mygrid");
-        for (let i = 0; i < 15*15; i++) {
+        for (let i = 0; i < 15 * 15; i++) {
             let item = document.createElement("div");
             item.classList.add("item");
             mygrid.appendChild(item);
         }
     </script>
+</body>
+
 </html>

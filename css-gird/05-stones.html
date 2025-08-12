@@ -1,36 +1,39 @@
 <html>
-    <style>
-        .container {
-            display: grid;            
-            width: 30%;
-            aspect-ratio: 1 / 1;
-        }
-        .cell {
-            background-color: lightblue;
-            border: 1px solid black;
-            /* center the stone */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .stone {
-            width: 61.8%;            /* or any responsive size */
-            aspect-ratio: 1 / 1;   /* keeps it a square */
-            background-color: lightslategrey;
-            border-radius: 50%;
-        }
-    </style>
-    <body>
-        <div class="container" id="mygrid">
-         
-        </div>
-    </body>
+<style>
+    .container {
+        display: grid;
+        width: 30%;
+        aspect-ratio: 1 / 1;
+    }
+
+    .cell {
+        background-color: lightblue;
+        border: 1px solid black;
+        /* center the stone */
+        display: grid;
+        place-items: center;
+    }
+
+    .stone {
+        width: 61.8%;
+        /* or any responsive size */
+        aspect-ratio: 1 / 1;
+        /* keeps it a square */
+        background-color: lightslategrey;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <div class="container" id="mygrid">
+
+    </div>
 
     <script>
         let mygrid = document.getElementById("mygrid");
         let n = 15;
         mygrid.style.gridTemplateColumns = `repeat(${n}, auto)`;
-        for (let i = 0; i < n*n; i++) {
+        for (let i = 0; i < n * n; i++) {
             let cell = document.createElement("div");
             cell.classList.add("cell");
             mygrid.appendChild(cell);
@@ -42,4 +45,6 @@
             }
         }
     </script>
+</body>
+
 </html>
