@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>WebSocket Example</title>
+    <style>
+        html {
+            height: 100%;            
+        }
+
+        body {
+            height: 100%;
+        }
+
+        .input-box {
+            margin: 10px 0;
+        }
+
+        .input-box > input {
+            width: 50%;            
+        }
+
+        .chat-window {
+            display: flex;
+            height: 60%;
+            flex-direction: column;  
+            align-items: flex-end;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>WebSocket Demo</h1>
+
+    <div class="chat-window" id="messages">        
+    </div>
+
+    <div class="input-box">
+        <input id="messageInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        // bind enter key to fire sendMessage()
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const input = document.getElementById('messageInput');
+                if (input.value != '') {
+                    sendMessage();
+                }               
+            }
+        });
+
+        const socket = new WebSocket(`ws://${window.location.host}`);
+
+        socket.addEventListener('open', () => {
+            //addMessage('Connected to server');
+        });
+
+        socket.addEventListener('message', (event) => {
+            addMessage(`${event.data}`, 1);
+        });
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            socket.send(input.value);
+            addMessage(`${input.value}`, 0);
+            input.value = '';
+        }
+
+        function addMessage(text, id) {
+            const item = document.createElement('div');
+            item.textContent = text;
+            item.classList.add('message');
+            if (id == 1) {
+                item.style.alignSelf = 'flex-start';
+                item.style.backgroundColor = 'lightblue';
+            }
+            document.getElementById('messages').appendChild(item);
+
+            // auto-scroll chat window
+            const chatWindow = document.getElementById('messages');
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+    </script>
+</body>
+</html>
