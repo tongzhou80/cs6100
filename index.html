@@ -1,112 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CSCI 6100: Software Engineering</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>CISC 6100 Software Engineering — Course Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: #121830;
+      --panel-2: #0f152a;
+      --text: #e8ecf6;
+      --muted: #A9B1C6;
+      --accent: #7aa2f7;
+      --accent-2: #2ac3de;
+      --ok: #9ece6a;
+      --warn: #e0af68;
+      --danger: #f7768e;
+      --shadow: 0 10px 25px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent)}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(11,16,32,.9),rgba(11,16,32,.65));backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    nav{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    nav a{padding:10px 12px;border-radius:12px;text-decoration:none;color:var(--text);opacity:.9}
+    nav a:hover{background:rgba(122,162,247,.12);opacity:1}
+    .hero{display:grid;grid-template-columns:auto;gap:32px;align-items:center;padding:48px 0}
+    .card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid rgba(255,255,255,.08);border-radius:20px;box-shadow:var(--shadow)}
+    .pad{padding:22px}
+    h1{font-size:36px;margin:0 0 6px}
+    .subtitle{color:var(--muted);margin:0 0 10px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(42,195,222,.15);color:var(--accent-2);font-weight:600;font-size:12px;letter-spacing:.3px}
+    .grid{display:grid;gap:18px}
+    .grid.two{grid-template-columns:repeat(2,1fr)}
+    .grid.three{grid-template-columns:repeat(3,1fr)}
+    section{scroll-margin-top:80px;margin:34px 0}
+    h2{font-size:26px;margin:0 0 10px}
+    h3{font-size:18px;margin:18px 0 8px}
+    ul{padding-left:20px;margin:8px 0}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+    .table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    .table th{font-weight:600;color:var(--muted);text-align:left;padding:10px 12px}
+    .table td{padding:14px 12px;background:rgba(255,255,255,.04)}
+    .table tr td:first-child{border-top-left-radius:12px;border-bottom-left-radius:12px}
+    .table tr td:last-child{border-top-right-radius:12px;border-bottom-right-radius:12px}
+    .kicker{font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .callout{border-left:4px solid var(--accent);padding:14px 16px;background:rgba(122,162,247,.12);border-radius:8px}
+    footer{color:var(--muted);padding:40px 0 60px}
+    .chip{display:inline-flex;gap:6px;align-items:center;background:rgba(255,255,255,.06);padding:6px 10px;border-radius:999px}
+    .mono{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid.two{grid-template-columns:1fr}
+      .grid.three{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#about">About</a>
+        <a href="#textbook">Textbook</a>
+        <a href="#schedule">Tentative Schedule</a>
+        <a href="#syllabus">Syllabus</a>
+        <a href="#policies">Policies</a>
+        <a href="#grading">Grading</a>
+        <a href="#project">Team Project</a>
+        <span class="pill">TBA time & location</span>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <h1>CISC 6100: Software Engineering</h1>
-</header>
+  <main class="container">
+    <section id="about" class="hero">
+      <div>
+        <div class="badge">CISC 6100</div>
+        <h1>Software Engineering</h1>
+        <p class="subtitle">Instructor: <strong>Tong Zhou</strong> • Time & Location: <em>TBA</em></p>
+        <p>
+          A project-driven introduction to modern software engineering. Students will iteratively design and build an online
+          <em>Gomoku</em> game while learning requirements analysis, modeling (UML/OOP), design patterns, testing, web programming,
+          and tooling (Git & CI/CD). The course emphasizes Agile thinking, MVPs, and continuous improvement.
+        </p>
+        <div class="grid three">
+          <div class="card pad">
+            <div class="kicker">Prereqs</div>
+            <div>Basic programming skills, basic data structures.</div>
+          </div>
+          <div class="card pad">
+            <div class="kicker">Format</div>
+            <div>Lectures + team projects + midterm.</div>
+          </div>
+          <div class="card pad">
+            <div class="kicker">Outcomes</div>
+            <div>Ship an MVP, write tests, and present a working system.</div>
+          </div>
+        </div>
+      </div>
+    
+    </section>
 
-<main>
+    <section id="textbook">
+      <h2>Reference Textbook</h2>
+      <div class="card pad">
+        <p><strong>Ian Sommerville</strong>, <em>Software Engineering</em>, 10th edition. Additional readings will be posted as needed.</p>
+      </div>
+    </section>
 
-  <section aria-label="Class Schedule and Instructor Info">
-    <table>
-      <tbody>
-        <tr>
-          <td><strong>Class time:</strong></td>
-          <td>Lecture</td>
-          <td>Time and location to be announced</td>
-        </tr>
-      </tbody>
-    </table>
+    <section id="schedule">
+      <h2>Tentative Schedule (14 Weeks)</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width:90px">Week</th>
+            <th>Topic</th>
+            <th>Gomoku Demo / Student Focus</th>
+            <th>Deliverables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Intro to Software Engineering; course overview</td>
+            <td>Project announcement</td>
+            <td>Form groups</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Processes: Waterfall vs Agile; MVP; iterations vs sprints</td>
+            <td>Demo Iteration 1: Board skeleton + CSS</td>
+            <td>Assignment 1 (User stories & use case diagram)</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Requirements analysis; use cases & user stories</td>
+            <td>Define MVP scope for Gomoku</td>
+            <td>Backlog draft</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Modeling & Design I: Top-down design; stepwise refinement</td>
+            <td>Demo Iteration 2: Local clicks update board</td>
+            <td>Assignment 2 (UML class diagram)</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Modeling & Design II: OOP; UML class diagrams</td>
+            <td>Introduce GameState/Board/Player</td>
+            <td>Milestone A: Local play</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Architectures & Patterns: MVC; Observer; separation of concerns</td>
+            <td>Refactor demo toward MVC</td>
+            <td>Assignment 3 (Refactor snippet - general)</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Frontend web: HTML/CSS/JS; DOM events</td>
+            <td>Enhance UI; reset/new game</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Networking basics: Client-server; WebSockets</td>
+            <td>Demo Iteration 3: Simulated server messages</td>
+            <td>Assignment 4 (Unit tests for placeMove)</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Real-time networking: WebSockets; state sync</td>
+            <td>Demo Iteration 4: Real server passing moves</td>
+            <td>Milestone B: Two clients exchange moves</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Unit and integration testing</td>
+            <td>Write tests</td>
+            <td>TBD</td>
+          </tr>
+            <tr>
+            <td>11</td>
+            <td>Build process; CI/CD: GitHub Actions</td>
+            <td>Deploy to GitHub</td>
+            <td>Assignment 5 (Short programming - general)</td>
+          </tr>
+            <td>12</td>
+            <td>Software quality at scale: advanced testing</td>
+            <td>Independent build; instructor mentorship</td>
+            <td>Progress check; CI passing</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Topics TBD</td>
+            <td>TBD</td>
+            <td>TBD</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>Final presentations & retrospectives</td>
+            <td>Team demos & Q&A</td>
+            <td>Final submission & presentation</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="subtitle">Schedule is tentative and subject to change; updates will be announced in class.</p>
+    </section>
 
-    <p><strong>Instructor:</strong> Tong Zhou (<a href="https://tongzhou80.github.io/">my homepage</a>)</p>
-    <p><strong>Office:</strong> To be announced</p>
-    <p>
-      <strong>E-mail:</strong> 
-      <a href="mailto:tzhou44@fordham.edu">tzhou44@fordham.edu</a>
-    </p>
-    <p><strong>Office hours:</strong> To be announced</p>
-    <p><strong>Full syllabus</strong> is available <a href="syllabus.html">here</a>.</p>
-    <p>Course announcements, assignments, and lecture slides will be posted throughout the semester.</p>
-    <p><strong>Course textbooks:</strong></p>
-    <ul>
-      <li><em>Software Engineering: A Practitioner's Approach</em> by Roger Pressman and Bruce Maxim</li>
-      
-    </ul>
-  </section>
+    <section id="syllabus">
+      <h2>Syllabus (Overview)</h2>
+      <div class="grid two">
+        <div class="card pad">
+          <h3>Course Objectives</h3>
+          <ul>
+            <li>Practice iterative, Agile-informed development via a real web app.</li>
+            <li>Translate requirements into design, implementation, and tests.</li>
+            <li>Apply OOP, MVC, and basic design patterns.</li>
+            <li>Use Git and CI/CD to ship a working MVP.</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3>Assessment</h3>
+          <ul>
+            <li><strong>Team Project</strong>: 50%</li>
+            <li><strong>Individual Assignments</strong>: 20%</li>
+            <li><strong>Midterm Exam</strong>: 20%</li>
+            <li><strong>Participation</strong>: 10%</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card pad" style="margin-top:16px">
+        <h3>Key Dates</h3>
+        <ul>
+          <li>Midterm: TBA (Week 8–10 window)</li>
+          <li>Milestone A (Local play): Week 5</li>
+          <li>Milestone B (Networking MVP): Week 9</li>
+          <li>Milestone C (Proposal & Arch): Week 11</li>
+          <li>Final Presentations: Week 14</li>
+        </ul>
+      </div>
+    </section>
 
-  <nav aria-label="Page sections">
-    <h3>Sections below:</h3>
-    <ol>
-      <li><a href="#announcements">Announcements</a></li>
-      <li><a href="#slides">Slides</a></li>
-      <li><a href="#resources">Resources</a></li>
-      <li><a href="#assignments">Assignments</a></li>
-    </ol>
-  </nav>
+    <section id="policies">
+      <h2>Policies</h2>
+      <div class="grid two">
+        <div class="card pad">
+          <h3>Collaboration</h3>
+          <p>Discuss concepts freely. All submitted code and writing must reflect your team’s or your own understanding. Cite any external resources used.</p>
+        </div>
+        <div class="card pad">
+          <h3>Late Work</h3>
+          <p>Each team has 3 total late days for the semester on milestones/assignments (max 2 days per item). After that, 10% penalty per day. Presentations cannot be late.</p>
+        </div>
+      </div>
 
-  <section id="announcements">
-    <h3>Announcements</h3>
-    <article>
-      <p><strong>August 27:</strong> Welcome to CS 6100! I look forward to working with you this semester.</p>
-    </article>
-  </section>
+      <div class="card pad" style="margin-top:16px">
+        <h3>AI Use Policy</h3>
+        <p class="callout"><strong>Goal:</strong> Use AI to <em>learn</em> and improve productivity, not to outsource understanding.</p>
+        <ul>
+          <li><strong>Allowed (with citation):</strong> Using tools like ChatGPT/Gemini to clarify APIs, syntax, or get high‑level ideas; using completion tools (Copilot, Cursor, Codeium, Windsurf) for small code suggestions.</li>
+          <li><strong>Not allowed:</strong> Submitting AI‑generated solutions you do not understand; generating substantial portions of assignments/exams; using AI during closed‑book assessments.</li>
+          <li><strong>Transparency:</strong> Document AI assistance in READMEs or code comments (e.g., “Used Cursor suggestion for WebSocket reconnect loop, then modified to pass tests”).</li>
+          <li><strong>Accountability:</strong> You must be able to explain any submitted code. During demos or code reviews, expect spot questions.</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="slides">
-    <h3>Slides</h3>
+    <section id="grading">
+      <h2>Grading Breakdown</h2>
+      <div class="grid two">
+        <div class="card pad">
+          <h3>Team Project (50%)</h3>
+          <ul>
+            <li><strong>Functionality</strong> (20 pts): MVP (board, turns, win) + extended features (menus, invite link, chat).</li>
+            <li><strong>Code Quality & Testing</strong> (10 pts): Modularity/MVC, readability, README, unit & integration tests.</li>
+            <li><strong>Design Process & Iterations</strong> (10 pts): Requirements, UML, commit history, trade‑off rationale.</li>
+            <li><strong>Presentation & Collaboration</strong> (10 pts): Final demo, slides, Q&A, peer evaluations.</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3>Other Components</h3>
+          <ul>
+            <li><strong>Individual Assignments</strong> (20%): 4–6 short tasks (use cases, UML, tests, refactor, small coding).</li>
+            <li><strong>Midterm Exam</strong> (20%): Scenario‑based questions on requirements, design, testing, MVP trade‑offs.</li>
+            <li><strong>Participation</strong> (10%): Attendance, discussion, code reviews, forum posts.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <p>Course topics are organized into three modules:</p>
-    <ul>
-      <li>Module 1: How to run a software project effectively — software process, requirements, version control</li>
-      <li>Module 2: Designing and implementing quality software — OOP, abstraction, testing</li>
-      <li>Module 3: Learn web programming basics — frontend/backend integration</li>
-    </ul>
+    <section id="project">
+      <h2>Team Project — Online Gomoku</h2>
+      <div class="grid two">
+        <div class="card pad">
+          <h3>Scope</h3>
+          <ul>
+            <li><strong>MVP:</strong> Two players connect, moves sync in real time, win detection.</li>
+            <li><strong>Extensions:</strong> Menus (local / invite link / random match), chatbox, graceful disconnects, concurrent games.</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3>Deliverables</h3>
+          <ul>
+            <li>Repo with clear README, CI, and instructions.</li>
+            <li>Design docs: requirements, UML (class/sequence), architecture diagram.</li>
+            <li>Test suite with coverage of core logic.</li>
+            <li>Deployed demo (TBA platform) for final presentation.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card pad" style="margin-top:16px">
+        <h3>Academic Integrity</h3>
+        <p>All work must reflect your understanding. Cite libraries, tutorials, and AI assistance. Plagiarism or misrepresentation of work will be handled per university policy.</p>
+      </div>
+    </section>
 
-    <table border="1" cellspacing="0" cellpadding="4" aria-describedby="slides-desc">
-      <caption id="slides-desc" class="small-text">Lecture slides and topics will be posted here</caption>
-      <!-- <thead>
-        <tr>
-          <th>Slides</th>
-          <th>Reading Material</th>
-        </tr>
-      </thead> -->
-      <tbody>
-        <tr>
-          <td><a href="lectures/Lecture1.pdf">Lecture 1</a>, Introduction to Software Engineering</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <footer class="container">
+      <p>© <span id="year"></span> CISC 6100 Software Engineering • Instructor: Tong Zhou • Time & Location: TBA</p>
+    </footer>
+  </main>
 
-  </section>
-
-  <section id="resources">
-    <h3>Resources</h3>
-    <ul>
-      <li><a href="https://git-scm.com/doc">Git documentation</a></li>
-    </ul>
-  </section>
-
-  <section id="historical-perspectives">
-    <h3>Historical Perspectives</h3>
-    <ul>
-      <li><a href="https://worrydream.com/refs/Brooks_1986_-_No_Silver_Bullet.pdf">No Silver Bullet — Essence and Accident in Software Engineering</a>, Frederick P. Brooks, Jr., 1986</li>
-      
-    </ul>
-  </section>
-
-  <section id="assignments">
-    <h3>Assignments</h3>
-    <p>Assignments will be posted as the semester progresses.</p>
-  </section>
-
-</main>
-
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
